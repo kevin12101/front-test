@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand" style="background-color: #3f458a;">
+  
+  <a class="navbar-brand" >
+    <img  src="/assets/logo.png" alt="" width="80" height="35">  
+  </a>
+    <a class="navbar-brand text-white" href="/tickets">Inicio</a>
+    <button (click)="(newTicket())" type="button" routerLinkActive="activate"
+    class="btn text-white" style="background-color: #3f458a;" data-toggle="modal" data-target="#newIssue">Nuevo ticket</button>
+    
+    <button (click)="(salir())" type="button" routerLinkActive="activate"
+     class="btn ml-auto text-white" style="background-color: #3f458a;"data-toggle="modal" data-target="#newIssue">
+    <i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button>
+    
+</nav>
+
+
+

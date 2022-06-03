@@ -1,0 +1,74 @@
+
+<div class="container">
+    <div class="row justify-content-center">
+
+        <div class="container ">
+            <div class="form-group">
+                <form >
+
+                    <!--  <label class="form-label" for="form4Example3"># {{id}}</label>
+
+                          
+                            <div class="form-floating">
+                                <label class="form-label" for="form4Example3">Descripción Anterior</label>
+                            <textarea class="form-control textarea mt-2" value=" {{descripcion}}" id="abc" style="height: 80px" readonly></textarea>
+                            </div> -->
+
+                    <!-- Nueva descripcion -->
+                    <div class="form-outline mt-3 mb-4">
+                        <label class="form-label" for="form4Example3">Nueva descripción</label>
+                        <textarea class="form-control " id="description" rows="3" [(ngModel)]="tickets.description"
+                            [ngModelOptions]="{standalone: true}"> </textarea>
+                    </div>
+
+                </form>
+                
+        
+
+                <!-- Submit button -->
+                <div class="align-items-center mt-5">
+                    <button type="submit" class="btn active text-white"
+                    (click)="updatedes()"  style="background-color: #3f458a">Actualizar Caso</button>
+                </div>
+            
+            </div>
+            <!-- *ngIf="bandera" -->
+            <h3  class="text-center mt-2 ml-2">Historial De Estados Del Caso</h3>
+            <div class="container mt-5">
+                <table class="table-md table-responsive table-striped table-hover">
+                    <thead >
+                        <tr style="background-color: #3f458a;" class="table-active">
+                            <th class="text-center text-white col-1">Numero del Caso</th>
+                            <th class="text-center text-white col-1">Nombre de quien creo el Caso</th>
+                            <th class="text-center text-white col-1">Estado del Caso</th>
+                            <th class="text-center text-white col-1">Fecha de Creación</th>
+                            <th class="text-center text-white col-3">Descripcion del Caso</th>
+                            <th class="text-center text-white col-1">Fecha de Solucion</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of data_log ">
+                            <th scope="row">{{ data.id_cases}}</th>
+                            <th scope="row">{{ data.full_name}}</th>
+                            <td [ngStyle]="{'color': data?.status != 1 ? 'green':'red'}">{{data.status == 1?
+                                "Pendiente": "Solucionado"}}</td>
+                            <td>{{data.create_at| date:"short"}}</td>
+                            <td class="text-justify col-1">{{data.description}}</td>
+                            <td style="text-align: center;">{{data.solution_date| date:"short"}}</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+
+
+
+
+
+    </div>
+
+</div>

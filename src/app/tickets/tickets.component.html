@@ -1,0 +1,209 @@
+<!-- <app-header></app-header> -->
+
+						
+
+<div class="card">
+
+	
+	
+	<div class="mt-2 mb-4 col-4">
+		<form class="d-flex align-items-center">
+			<input class="form-control mr-2" name="filter" type="search" [(ngModel)]="filter" placeholder="Buscar..." >
+			<i class="fas fa-search" ></i>
+			<!-- <button style="background-color: #3f458a;" class="btn text-white btn" type="button">Buscar</button> -->
+		</form>
+	</div>
+
+	
+	<label  class="form-label ml-4" for="">Filtrar por Estados del caso</label>
+	<div  class="input-group mb-3 ml-4" >
+		
+		<select (change)="getinfo(filtro.estado_caso)" [(ngModel)]="filtro.estado_caso" class="form-select col-lg-2" aria-label="Default select example">
+			<option value ="Solucionado">Solucionado</option>
+		  	<option value="Pendiente">Pendiente</option>
+		</select>
+		<span class="input-group-text border-0" id="search-addon" (click)="getinfo(undefined)">
+			<i class="fa fa-window-close"></i>
+		</span>
+		
+	</div>
+
+
+	<div *ngIf="cliente ==1" class="card-header text-center ">
+		CONTROL DE CASOS FINKY
+	</div>
+
+	<div *ngIf="cliente == 2" class="card-header text-center">
+		CONTROL DE CASOS VIGPRO
+	</div>
+	<div class="card-body" >
+		<div class="table-responsive">
+			<table class="table-striped table-hover table-borderless">
+				<thead>
+					<tr>
+						<th class="text-center col-1">Numero del Caso</th>
+						<th class="text-center col-1">Nombre de quien creo el Caso</th>
+						<th class="text-center col-1">Estado del Caso</th>
+						<th class="text-center col-2">Fecha de Creación</th>
+						<th class ="text-center col-3">Descripcion del Caso</th>
+						<th class="text-center col-1">Fecha de Solucion</th>
+						<th class="text-center col-1">Ver informacion</th>
+						<th *ngIf="cliente==1"  class="text-center col-1">Comentario Dev</th>
+						<!-- <th class="text-center col-1">Editar Caso</th> -->
+						<th *ngIf="idrol == 2" class="col-1 text-center">Cambiar Estado</th>
+
+					</tr>
+				</thead>
+				<tbody> 
+					<tr *ngFor="let data of data | filter: filter | paginate: { itemsPerPage: 10,currentPage: pageActual} " >
+						<th class="text-center"  scope="row">{{ data.id }}</th>
+						<th class="text-center" scope="row">{{ data.full_name }}</th>
+						<td class="text-center" [ngStyle]="{'color': data?.status != 1 ? 'green' : 'red'}">{{data.status == 1? "Pendiente": "Solucionado"}}</td>
+						<td class="text-center"> {{data.create_at| date:"short"}}</td>
+						<!-- <td>{{ data.status == 1 ? 'en revision':data.solution_date | date:"short"}}</td> -->
+						<td class = "text-justify col-1">{{data.description}}</td>
+						<td style= "text-align: center;">{{data.solution_date | date:"short" }}</td>
+						<td style="text-align: center;"><button (click)="open(data.id, content)" type="button"  class="btn text-white" style="background-color: #3f458a">Ver info</button></td>
+						<td *ngIf="cliente == 1" class = "text-justify col-1">{{data.comentario_dev}}</td>
+						<!-- <td [routerLink]="['/ticket', data.id]" style="text-align: center;"><button type="button"  class="btn text-white" style="background-color: #3f458a">Editar</button></td> -->
+						<td (click)="(updatestate(data.id, solution))" style="text-align: center;"  *ngIf="idrol == 2"><button type="button"  class="btn text-white" style="background-color: #3f458a">Solucionado</button></td>
+						
+					</tr>
+					
+				</tbody>
+				
+			</table>
+		</div>
+		<div class="mt-2">
+			<pagination-controls class=" text-center" previousLabel="Anterior" nextLabel="Siguiente" (pageChange)="pageActual = $event"></pagination-controls>
+		</div>
+	</div>
+
+	<ng-template #content let-modal>
+		<div class="modal-header">
+			<div class="container">
+				<h3 class="text-center modal-title">Numero de Caso {{ databyid[0]?.id}} </h3>
+			</div>
+		  <button type="button" class="close" aria-label="Close" (click)="cerrarmodal()">
+		  <span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+
+		<div class="modal-body ">
+
+			<div class="form-group">
+					<label for="name"> <i class="fa-solid fa-user fa-1x"></i>Nombre</label>
+					<input class="form-control form-control-sm " type="text" value="{{databyid[0]?.full_name ? databyid[0]?.full_name : '' }}" readonly>
+			</div>
+
+			<div class="form-group">
+				<label for="name">Estado del Caso</label>
+				<td [ngStyle]="{'color': databyid[0]?.status != 1 ? 'green' : 'red'}">{{databyid[0]?.status == 1 ? "Pendiente": "Solucionado"}}</td>
+			</div>
+
+			<div class="form-group">
+				<label for="name"> <i class="fas fa-calendar-alt"></i> Fecha de Creación </label>
+				<input class="form-control form-control-sm" id= "name" type="text" placeholder="{{databyid[0]?.create_at | date : 'short' }}" readonly>
+			</div>
+
+			<div  class="form-group">
+				<label for="name"> <i class="fas fa-calendar-alt"></i> Fecha de Solución</label>
+				<input class="form-control form-control-sm" id= "name" type="text" placeholder="{{databyid[0]?.solution_date | date :'dd/mm/yy hh:mm:a'}}" readonly>
+			</div>
+
+			<div  class="form-group">
+
+				<label for="name"> <i class="fa-solid fa-info"></i> Descripcion</label>
+				<input class="form-control form-control-sm" id= "name" type="text" value="{{databyid[0]?.description}}" readonly>
+			</div>
+			
+			<div *ngIf="cliente == 1" class="form-group">
+
+				<label for="name">Solucion Esperada</label>
+				<input class="form-control form-control-sm" id= "name" type="text" value="{{databyid[0]?.solucion_esperada}}" readonly>
+			</div>
+
+			<div *ngIf="cliente == 1" class="form-group">
+
+				<label for="name"><i class="fa-solid fa-hashtag"></i> Cupo</label>
+				<input class="form-control form-control-sm" id= "name" type="text" value="{{databyid[0]?.cupo}}" readonly>
+			</div>
+
+			<div *ngIf="cliente == 2"  class="form-outline w-50 mt-2 ">
+				<label for="name">Url</label>
+				<input class="form-control form-control-sm " id= "name" type="text" value="{{databyid[0]?.url}}" readonly>
+			</div>
+
+			<div class="form-group mt-2">
+				<label for="name"> <i class="fa-solid fa-exclamation"></i> Prioridad</label>
+				<input class="form-control form-control-sm" id= "name" type="text" value="{{databyid[0]?.priority}}" readonly>
+			</div>
+
+			<div *ngIf="notas.length >= 1" >
+				<label class= "mt-2" for="name"> <i class="fas fa-sticky-note"></i> Notas</label>
+				<div class="form-group" *ngFor=" let nota of notas; let i = index">
+				<input class="form-control form-control-sm" id= "name" type="text" value="{{nota}}" readonly>
+			</div>
+			</div>
+
+			<button (click)="agregarNota()"  type="button" class="btn text-white" style="background-color: #3f458a">Agregar Nota</button>
+			<div *ngIf="bandera" class="row" [formGroup]="form" >
+				<div class="col">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Notas</th>
+								<th>Eliminar nota</th>
+							</tr>
+						</thead>
+						<tbody formArrayName="notas" *ngFor=" let nota of getnotas.controls; let i = index">
+							<tr></tr>
+							<td>
+								<textarea class="form-control form-control-sm" [formControlName] = "i" ></textarea>
+								<td (click)="borrarNota(i)" style="text-align: center;"><button type="button" class="btn text-white" style="background-color: #3f458a">Eliminar</button>	
+							</td>
+						</tbody>
+					</table>
+
+				</div>
+
+			</div>
+
+
+
+		</div>
+		
+		
+		<div class="modal-footer">
+			
+			<a *ngIf="urls.length > 0"  style="background-color: #3f458a" class ="btn btn-sucess text-white mr-2" (click)="openfiles()">Descargar imagenes adjuntas</a>
+			<button (click)="guardar(databyid[0]?.id)" style="text-align: center;" type="button" class="btn text-white mr-2" style="background-color: #3f458a">Guardar Notas</button>
+			<!-- <td [routerLink]="['/ticket', databyid[0]?.id]" (click)="modal.close()" style="text-align: center;"><button type="button"  class="btn text-white" style="background-color: #3f458a">Editar</button></td> -->
+			<button type="button" class="close" aria-label="Close" class="btn btn-sucess text-white" style="background-color: #3f458a"  (click)="cerrarmodal()">Cerrar</button>
+		</div>
+	</ng-template>
+
+	<ng-template #solution let-modal [formGroup]="actualizar_case">
+		<div class="modal-header">
+			<div class="container">
+				<h3 class="text-center modal-title">Numero de Caso {{ databyid[0]?.id}} </h3>
+			</div>
+		  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+		  <span aria-hidden="true">&times;</span>
+		  </button>
+		</div>
+
+		<div class="modal-body text-center">
+			<label class="form-label" >Comentario Dev</label>
+			<textarea formControlName="comentario_dev" class="form-control form-control-sm" type="text"></textarea>
+		</div>
+		<div class="modal-footer">
+			<button *ngIf="this.actualizar_case.get('comentario_dev')?.value" type="button" class="btn btn-sucess text-white" style="background-color: #3f458a" (click)="cerrarCaso(databyid[0]?.id, solution)">Solucionar Caso</button>
+		</div>
+	</ng-template>
+
+
+</div>
+
+
+
