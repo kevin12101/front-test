@@ -1,0 +1,46 @@
+.sidenav-container {
+  height: 70%;
+  width: auto;
+  background:  #3f458a;
+}
+
+.sidenav {
+  width: 200px;
+  background:  #3f458a;
+}
+
+.sidenav .mat-toolbar {
+  background:  #3f458a;;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.example-accordion {
+  display: block;
+  max-width: 500px;
+}
+
+.example-accordion-item {
+  display: inline-block;
+  border: solid 1px #ccc;
+}
+
+.example-accordion-item + .example-accordion-item {
+  border-top: none;
+}
+
+.example-accordion-item-header {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  color: white;
+}
+
+.example-accordion-item-description {
+  font-size: 0.85em;
+  color: white;
+}

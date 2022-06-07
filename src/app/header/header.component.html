@@ -1,9 +1,11 @@
 <nav class="navbar navbar-expand" style="background-color: #3f458a;">
   
-  <a class="navbar-brand" >
-    <img  src="/assets/logo.png" alt="" width="80" height="35">  
-  </a>
-    <a class="navbar-brand text-white" href="/tickets">Inicio</a>
+  <!-- <a class="navbar-brand" >
+    <img src="../../assets/logo.png" alt="" width="100" height="35">
+  </a> -->
+    
+    <button (click)="(home())" type="button" routerLinkActive="activate"
+    class="btn text-white" style="background-color: #3f458a;" data-toggle="modal" data-target="#newIssue">Inicio</button>
     <button (click)="(newTicket())" type="button" routerLinkActive="activate"
     class="btn text-white" style="background-color: #3f458a;" data-toggle="modal" data-target="#newIssue">Nuevo ticket</button>
     

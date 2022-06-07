@@ -46,7 +46,7 @@
 						<th class="text-center col-1">Estado del Caso</th>
 						<th class="text-center col-2">Fecha de Creación</th>
 						<th class ="text-center col-3">Descripcion del Caso</th>
-						<th class="text-center col-1">Fecha de Solucion</th>
+						<th class="text-center col-2">Fecha de Solucion</th>
 						<th class="text-center col-1">Ver informacion</th>
 						<th *ngIf="cliente==1"  class="text-center col-1">Comentario Dev</th>
 						<!-- <th class="text-center col-1">Editar Caso</th> -->
@@ -59,10 +59,10 @@
 						<th class="text-center"  scope="row">{{ data.id }}</th>
 						<th class="text-center" scope="row">{{ data.full_name }}</th>
 						<td class="text-center" [ngStyle]="{'color': data?.status != 1 ? 'green' : 'red'}">{{data.status == 1? "Pendiente": "Solucionado"}}</td>
-						<td class="text-center"> {{data.create_at| date:"short"}}</td>
+						<td class="text-center"> {{data.create_at| date:"dd/MM/yy hh:mm:a"}}</td>
 						<!-- <td>{{ data.status == 1 ? 'en revision':data.solution_date | date:"short"}}</td> -->
 						<td class = "text-justify col-1">{{data.description}}</td>
-						<td style= "text-align: center;">{{data.solution_date | date:"short" }}</td>
+						<td style= "text-align: center;">{{data.solution_date | date:"dd/MM/yy hh:mm:a" }}</td>
 						<td style="text-align: center;"><button (click)="open(data.id, content)" type="button"  class="btn text-white" style="background-color: #3f458a">Ver info</button></td>
 						<td *ngIf="cliente == 1" class = "text-justify col-1">{{data.comentario_dev}}</td>
 						<!-- <td [routerLink]="['/ticket', data.id]" style="text-align: center;"><button type="button"  class="btn text-white" style="background-color: #3f458a">Editar</button></td> -->
@@ -103,12 +103,12 @@
 
 			<div class="form-group">
 				<label for="name"> <i class="fas fa-calendar-alt"></i> Fecha de Creación </label>
-				<input class="form-control form-control-sm" id= "name" type="text" placeholder="{{databyid[0]?.create_at | date : 'short' }}" readonly>
+				<input class="form-control form-control-sm" id= "name" type="text" placeholder="{{databyid[0]?.create_at | date :'short'}}" readonly>
 			</div>
 
 			<div  class="form-group">
 				<label for="name"> <i class="fas fa-calendar-alt"></i> Fecha de Solución</label>
-				<input class="form-control form-control-sm" id= "name" type="text" placeholder="{{databyid[0]?.solution_date | date :'dd/mm/yy hh:mm:a'}}" readonly>
+				<input class="form-control form-control-sm" id= "name" type="text" placeholder="{{databyid[0]?.solution_date | date :'dd/MM/yy'}}" readonly>
 			</div>
 
 			<div  class="form-group">

@@ -11,7 +11,7 @@ import { RegisterComponent } from '../register/register.component';
 import { LayoutRoutes } from './layout.routing';
 import { FilterPipe } from '../pipes/filter.pipe';
 import { TicketComponent } from '../ticket/ticket.component';
-
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   imports: [
@@ -21,6 +21,10 @@ import { TicketComponent } from '../ticket/ticket.component';
     ReactiveFormsModule,
     RouterModule.forChild(LayoutRoutes),
     NgxPaginationModule,
+    MatToolbarModule,
+    
+    
+    
    
   ],
   declarations: [
@@ -28,7 +32,7 @@ import { TicketComponent } from '../ticket/ticket.component';
     FilterPipe,
     RegisterComponent,
     NewTicketComponent,
-    TicketComponent
+    TicketComponent,
   ],
 })
 export class LayoutModule {}

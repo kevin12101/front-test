@@ -1,15 +1,10 @@
-<div class="" style="background-color: #3f458a;">
-    
-    <app-header></app-header>
-    <div class="sidebar" data-image="">
+<div class="wrapper" >
+    <div class="" data-color="" >
         
-        <app-sidebar></app-sidebar>
-        
-        <div class="sidebar-background" ></div>
+        <app-sidebar-test></app-sidebar-test>
     </div>
   
-    <div class="main-panel">
-        <!-- <navbar-cmp></navbar-cmp> -->
+    <div class="main-panel" >
         <router-outlet></router-outlet>
         <div *ngIf="isMap('maps')">
             

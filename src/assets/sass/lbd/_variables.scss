@@ -11,6 +11,7 @@ $color-green:           #87CB16;
 $color-orange:          #FFA534;
 $color-blue:            #447DF7;
 $color-black:           #5e5e5e;
+$color-sfco:           #5e5e5e;
 
 $none:                       0   !default;
 $border-thin:                1px !default;
@@ -222,6 +223,7 @@ $red-color-bottom: 	                #bb0502;
 
 $purple-color-top: 	                #df55e1;
 $purple-color-bottom: 	            #943bea;
+$sfco-color-bottom: 	            #3f458a;
 
 $pink-color-top: 		            #ff2a63;
 $pink-color-bottom: 	            #ff2e2e;
@@ -251,12 +253,13 @@ $filter-red:          darken($danger-color, 10%);
 
 
 $new-blue:            #1DC7EA;
-$new-purple:          #9368E9;
+$new-purple:          #0e123f;
 $new-red:             #FB404B;
 $new-green:           #87CB16;
 $new-orange:          #FFA534;
 $new-dark-blue:       #1F77D0;
 $new-black:           #5e5e5e;
+$new-sfco:            #3f458a;
 
 
 $topbar-x:             topbar-x !default;

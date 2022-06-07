@@ -11,7 +11,7 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-tickets',
   templateUrl: './tickets.component.html',
-  encapsulation: ViewEncapsulation.None,  
+  //encapsulation: ViewEncapsulation.None,  
   styleUrls: ['./tickets.component.css']
 })
 export class TicketsComponent implements OnInit {
@@ -235,6 +235,8 @@ export class TicketsComponent implements OnInit {
   this.apiService.post('tickets',this.client).subscribe(
     async (res: any) => {
       this.data = res;
+      console.log(this.data);
+      
       if(filter != undefined){
         const estado = this.filtro.estado_caso  == "Pendiente"  ?  1 : 2;
         this.data = this.data.filter( (item:any) => item.status ==  estado );

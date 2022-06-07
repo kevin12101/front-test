@@ -1,38 +1,37 @@
 <!-- <app-header></app-header> -->
-        <div class="container"> 
-        <div  class="card-body">
-  
-          <div class="row justify-content-center">
-  
-            <div class="container ">
-                <div class="form-group">
-                    <form [formGroup]="ticketsForm">  
+<div class="container-fluid">
+  <div class="card-body" style="background-color: white;">
+    <div class="row justify-content-center">
 
-                        <!-- Tipo de soporte -->
-                        <label *ngIf="client==2" class="form-label" for="type_support">Tipo de soporte</label>
-                        <div *ngIf="client==2" class="input-group mb-3">
-                         <select  formControlName="type_support" name="type_support" class="custom-select col-lg-6" id="type_support">
-                            <option *ngFor="let item of type_sup" [value]="item" > {{item}}</option>
-                          
-                         </select>
-                         
-                         </div>
+      <div class="container ">
+        <div class="form-group">
+          <form [formGroup]="ticketsForm">
+
+            <!-- Tipo de soporte -->
+            <label *ngIf="client==2" class="form-label" for="type_support">Tipo de soporte</label>
+            <div *ngIf="client==2" class="input-group mb-3">
+              <select formControlName="type_support" name="type_support" class="custom-select col-lg-6"
+                id="type_support">
+                <option *ngFor="let item of type_sup" [value]="item"> {{item}}</option>
+
+              </select>
+
+            </div>
 
 
-                        <!-- Name input -->
-                        <div class="form-outline mb-4 py-1">
-                            <label class="form-label" for="form4Example1">Nombre De Quien Crea el Caso</label>
-                            <input type="text" id="fullname" class="form-control col-lg-8"
-                             formControlName="name"
-                             [class.is-invalid] = "nombreNovalido"/>
-                        <small *ngIf="nombreNovalido" class="text-danger">
-                          Campo obligatorio
-                        </small>  
-                        </div>
-            
+            <!-- Name input -->
+            <div class="form-outline mb-4 py-1">
+              <label class="form-label" for="form4Example1">Nombre De Quien Crea el Caso</label>
+              <input type="text" id="fullname" class="form-control col-lg-8" formControlName="name"
+                [class.is-invalid]="nombreNovalido" />
+              <small *ngIf="nombreNovalido" class="text-danger">
+                Campo obligatorio
+              </small>
+            </div>
 
-                        <!--Fecha de solicitud del incidente -->
-                       <!--  <div class="form-outline mb-4 "  >
+
+            <!--Fecha de solicitud del incidente -->
+            <!--  <div class="form-outline mb-4 "  >
                             <label class="form-label">Fecha Inicio Solicitud</label>
                             <div class="input-group">
                               <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
@@ -43,146 +42,147 @@
                               </div>
                             </div>
                           </div> -->
-                          
-                          <!-- titulo input -->
-                          <div class="form-outline mb-4 py-1">
-                            <label class="form-label" for="form4Example1">Titulo</label>
-                            <input type="text" id="fullname" class="form-control col-lg-8" formControlName="title" [class.is-invalid] = "tituloNovalido" />
-                            <small *ngIf="tituloNovalido" class="text-danger">Campo obligatorio</small>
-                         </div>
-            
-                        <!-- Descripcion input -->
-                        <div class="form-outline mb-4 py-0">
-                            <label class="form-label" for="form4Example3">Descripción del incoveniente</label>
-                            <textarea class="form-control " id="description" rows="3" formControlName="description" [class.is-invalid] = "descripcionNovalido"> </textarea>
-                            <small *ngIf="descripcionNovalido" class="text-danger">
-                              Campo obligatorio
-                            </small>
-                        </div>
 
-                         <!-- solucion esperada input -->
-                         <div *ngIf="client == 1" class="form-outline mb-4 py-1">
-                          <label class="form-label" for="form4Example1">Solucion Esperada</label>
-                          <input type="text" id="solucion_esperada" class="form-control col-lg-8" formControlName="solucion_esperada" [class.is-invalid] = "solucion_esperada" />
-                          <small *ngIf="solucion_esperada" class="text-danger">Campo obligatorio</small>
-                          </div>
-
-                         <!-- #cupo input -->
-                         <div *ngIf="client == 1" class="form-outline mb-4 py-1">
-                          <label class="form-label" for="form4Example1">Numero de cupo</label>
-                          <input type="text" id="cupo" class="form-control col-lg-8" formControlName="cupo" [class.is-invalid] = "cupoNovalido" />
-                          <small *ngIf="cupoNovalido" class="text-danger">Campo obligatorio, Requiere un valor numerico</small>
-                          </div>
-
-                         <!-- cliente -->
-                        <label *ngIf="client == 2" class="form-label" for="form4Example1">Cliente</label>
-                        <div *ngIf="client == 2" class="input-group mb-3">
-                          <select  formControlName="cliente" class="custom-select col-lg-6" id="inputGroupSelect02">
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                          </select>
-                          
-                        </div>
-
-                        <!-- Url input -->
-                        <div *ngIf="client == 2" class="form-outline mb-4 py-1">
-                            <label class="form-label" for="form4Example1">Url</label>
-                            <input type="text" id="fullname" class="form-control col-lg-8" formControlName="url" [class.is-invalid] = "urlNovalido" />
-                            <small *ngIf="urlNovalido" class="text-danger">Campo obligatorio</small>
-                        </div>
-
-                       <!--  (click)="tickets.vigilancia; -->
-                        <!--Vigilancia -->
-                        <div *ngIf="client == 2" class="form-outline mb-4 "  >
-                          <label class="form-label">Fecha Vigilancia </label>
-                          <div class="input-group">
-                            <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
-                            <input type="date" class="form-control col-lg-4" aria-describedby="addon-wrapping"  formControlName="vigilancia">
-                            <div class="input-group-append">
-                              <button class="btn btn-outline-secondary" type="button"><i
-                                  class="fa fa-times"></i></button>
-                            </div>
-                          </div>
-                        </div>
-
-              
-
-                        <!-- Plataforma -->
-                        <label *ngIf="client == 2" class="form-label" for="form4Example1">Plataforma</label>
-                        <div *ngIf="client == 2" class="input-group mb-3">
-                          <select  formControlName="plataforma" class="custom-select col-lg-6" id="inputGroupSelect02">
-                            <option *ngFor="let item of platform_list" [value]="item" > {{item}}</option>
-                          </select>
-                          
-                        </div>
-
-                         <!-- Topologia -->
-                         <label *ngIf="client == 1" class="form-label" for="form4Example1">Topologia</label>
-                         <div *ngIf="client == 1"  class="input-group mb-3">
-                           <select  formControlName="topologia" class="custom-select col-lg-6" id="topologia">
-                             <option value="ejemplo">ejemplo</option>
-                             <option value="2">Two</option>
-                             <option value="3">Three</option>
-                           </select>
-                           
-                         </div>                         
-
-                         <!-- Prioridad -->
-                         <label class="form-label" for="form4Example1">Prioridad</label>
-                         <div  class="input-group mb-3">
-                          <select  formControlName="priority" class="custom-select col-lg-6" id="inputGroupSelect02">
-                            <option *ngFor="let item of priority_list" [value]="item" > {{item}}</option>
-                          </select>
-                          
-                        </div>
-
-                        <!-- Tipificacion -->
-                        <label *ngIf="client == 2" class="form-label" for="form4Example1">Tipificacion</label>
-                        <div *ngIf="client == 2" class="input-group mb-3">
-                         
-                         <select  formControlName="tipificacion" class="custom-select col-lg-6" id="inputGroupSelect02">
-                          <option *ngFor="let item of tipificacion_list" [value]="item" > {{item}}</option>
-                         </select>
-                         
-                       </div>
-
-                        <!-- Input de imagenes -->
-                        <div class=" d-flex mb-3 mt-4">
-                          
-                          <input type="file" (change)="getFile($event)" id="files" name = "files" multiple>
-                          <button *ngIf="previsualizacion" class="btn clear-image  ml-auto text-white" type="button" style="background-color: #3f458a" (click)="clearImage()">Borrar imagenes</button>
-                         <!--  <button (click)="(sendFile())" type="button" class="btn ml-auto text-white" style="background-color: #3f458a">Enviar</button> -->
-                           
-                        </div>
-
-                        <div *ngFor="let archivo of archivos ;let i  = index;" class="preview-img" >
-                          <li type="disc">Archivo # {{i + 1}} Nombre de archivo cargado {{archivo.name}}</li>
-                        </div>
-            
-                        <!-- Boton de creacion de caso -->
-                        <div class="align-items-center ">
-                        <button type="submit" (click)="(create())" class="btn active text-white mt-2"  style="background-color: #3f458a">Crear Caso</button>
-                        </div>
-                    </form>
-                </div>
-            
+            <!-- titulo input -->
+            <div class="form-outline mb-4 py-1">
+              <label class="form-label" for="form4Example1">Titulo</label>
+              <input type="text" id="fullname" class="form-control col-lg-8" formControlName="title"
+                [class.is-invalid]="tituloNovalido" />
+              <small *ngIf="tituloNovalido" class="text-danger">Campo obligatorio</small>
             </div>
-    
-  
-  
-  
-  
-          </div>
-  
+
+            <!-- Descripcion input -->
+            <div class="form-outline mb-4 py-0">
+              <label class="form-label" for="form4Example3">Descripción del incoveniente</label>
+              <textarea class="form-control " id="description" rows="3" formControlName="description"
+                [class.is-invalid]="descripcionNovalido"> </textarea>
+              <small *ngIf="descripcionNovalido" class="text-danger">
+                Campo obligatorio
+              </small>
+            </div>
+
+            <!-- solucion esperada input -->
+            <div *ngIf="client == 1" class="form-outline mb-4 py-1">
+              <label class="form-label" for="form4Example1">Solucion Esperada</label>
+              <input type="text" id="solucion_esperada" class="form-control col-lg-8"
+                formControlName="solucion_esperada" [class.is-invalid]="solucion_esperada" />
+              <small *ngIf="solucion_esperada" class="text-danger">Campo obligatorio</small>
+            </div>
+
+            <!-- #cupo input -->
+            <div *ngIf="client == 1" class="form-outline mb-4 py-1">
+              <label class="form-label" for="form4Example1">Numero de cupo</label>
+              <input type="text" id="cupo" class="form-control col-lg-8" formControlName="cupo"
+                [class.is-invalid]="cupoNovalido" />
+              <small *ngIf="cupoNovalido" class="text-danger">Campo obligatorio, Requiere un valor numerico</small>
+            </div>
+
+            <!-- cliente -->
+            <label *ngIf="client == 2" class="form-label" for="form4Example1">Cliente</label>
+            <div *ngIf="client == 2" class="input-group mb-3">
+              <select formControlName="cliente" class="custom-select col-lg-6" id="inputGroupSelect02">
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+
+            </div>
+
+            <!-- Url input -->
+            <div *ngIf="client == 2" class="form-outline mb-4 py-1">
+              <label class="form-label" for="form4Example1">Url</label>
+              <input type="text" id="fullname" class="form-control col-lg-8" formControlName="url"
+                [class.is-invalid]="urlNovalido" />
+              <small *ngIf="urlNovalido" class="text-danger">Campo obligatorio</small>
+            </div>
+
+            <!--  (click)="tickets.vigilancia; -->
+            <!--Vigilancia -->
+            <div *ngIf="client == 2" class="form-outline mb-4 ">
+              <label class="form-label">Fecha Vigilancia </label>
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon1"><i class="fa fa-calendar"></i></span>
+                <input type="date" class="form-control col-lg-4" aria-describedby="addon-wrapping"
+                  formControlName="vigilancia">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button"><i class="fa fa-times"></i></button>
+                </div>
+              </div>
+            </div>
+
+
+
+            <!-- Plataforma -->
+            <label *ngIf="client == 2" class="form-label" for="form4Example1">Plataforma</label>
+            <div *ngIf="client == 2" class="input-group mb-3">
+              <select formControlName="plataforma" class="custom-select col-lg-6" id="inputGroupSelect02">
+                <option *ngFor="let item of platform_list" [value]="item"> {{item}}</option>
+              </select>
+
+            </div>
+
+            <!-- Topologia -->
+            <label *ngIf="client == 1" class="form-label" for="form4Example1">Topologia</label>
+            <div *ngIf="client == 1" class="input-group mb-3">
+              <select formControlName="topologia" class="custom-select col-lg-6" id="topologia">
+                <option value="ejemplo">ejemplo</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+
+            </div>
+
+            <!-- Prioridad -->
+            <label class="form-label" for="form4Example1">Prioridad</label>
+            <div class="input-group mb-3">
+              <select formControlName="priority" class="custom-select col-lg-6" id="inputGroupSelect02">
+                <option *ngFor="let item of priority_list" [value]="item"> {{item}}</option>
+              </select>
+
+            </div>
+
+            <!-- Tipificacion -->
+            <label *ngIf="client == 2" class="form-label" for="form4Example1">Tipificacion</label>
+            <div *ngIf="client == 2" class="input-group mb-3">
+
+              <select formControlName="tipificacion" class="custom-select col-lg-6" id="inputGroupSelect02">
+                <option *ngFor="let item of tipificacion_list" [value]="item"> {{item}}</option>
+              </select>
+
+            </div>
+
+            <!-- Input de imagenes -->
+            <div class=" d-flex mb-3 mt-4">
+
+              <input type="file" (change)="getFile($event)" id="files" name="files" multiple>
+              <button *ngIf="previsualizacion" class="btn clear-image  ml-auto text-white" type="button"
+                style="background-color: #3f458a" (click)="clearImage()">Borrar imagenes</button>
+              <!--  <button (click)="(sendFile())" type="button" class="btn ml-auto text-white" style="background-color: #3f458a">Enviar</button> -->
+
+            </div>
+
+            <div *ngFor="let archivo of archivos ;let i  = index;" class="preview-img">
+              <li type="disc">Archivo # {{i + 1}} Nombre de archivo cargado {{archivo.name}}</li>
+            </div>
+
+            <!-- Boton de creacion de caso -->
+            <div class="align-items-center ">
+              <button type="submit" (click)="(create())" class="btn active text-white mt-2"
+                style="background-color: #3f458a">Crear Caso</button>
+            </div>
+          </form>
         </div>
-  
-  
-  
-</div> 
-  
+
+      </div>
 
 
 
 
 
+    </div>
+
+  </div>
+
+
+
+</div>

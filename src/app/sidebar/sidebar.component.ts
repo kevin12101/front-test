@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-
+  menuItems: any[] | undefined = [{path: "/tickets", title: "inicio"}, {path: "/newTicket", title: "nuevo ticket"} ,{path: "/", title: "generear Reportes"}];
   constructor() { }
 
   ngOnInit(): void {
+    
   }
+  
 
 }

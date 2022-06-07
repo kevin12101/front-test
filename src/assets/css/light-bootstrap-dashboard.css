@@ -303,7 +303,7 @@ input:focus {
 
 .sidebar,
 .bootstrap-navbar {
-  margin-top: 90px;
+  margin-top: 0px;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -311,7 +311,7 @@ input:focus {
   width: 265px;
   display: block;
   z-index: 5;
-  color: #fff;
+  color: black;
   font-weight: 200;
   background-size: cover;
   background-position: center center;
@@ -566,6 +566,23 @@ input:focus {
   background: linear-gradient(to bottom, #1f77d0 0%, #533ce1 100%);
   background-size: 150% 150%;
 }
+.sidebar[data-color="sfco"]:after,
+.bootstrap-navbar[data-color="sfco"]:after {
+  background: #1f77d0;
+  background: -moz-linear-gradient(top, #3f458a 0%, #3f458a 100%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #1f77d0),
+    color-stop(100%, #533ce1)
+  );
+  background: -webkit-linear-gradient(top, #3f458a 0%, #3f458a 100%);
+  background: -o-linear-gradient(top, #3f458a 0%, #3f458a 100%);
+  background: -ms-linear-gradient(top, #3f458a 0%, #3f458a 100%);
+  background: linear-gradient(to bottom, #3f458a 0%, #3f458a 100%);
+  background-size: 150% 150%;
+}
 .sidebar[data-color="azure"]:after,
 .bootstrap-navbar[data-color="azure"]:after {
   background: #1dc7ea;
@@ -653,13 +670,17 @@ input:focus {
 }
 
 .main-panel {
-  background: rgba(203, 203, 210, 0.15);
-  position: relative;
+  background: white (203, 203, 210, 0.15);
+  position: absolute;
   z-index: 2;
-  float: right;
+  margin-left: 200px ;
   width: calc(100% - 260px);
   min-height: 100%;
   overflow: auto;
+  width: 1486px;
+  
+
+  
 }
 .main-panel .main-content {
   padding: 30px 15px;
@@ -3507,7 +3528,7 @@ fieldset[disabled] .form-control {
     left: auto;
     z-index: 1032;
     visibility: visible;
-    background-color: #999;
+    background-color: purple;
     overflow-y: visible;
     border-top: none;
     text-align: left;

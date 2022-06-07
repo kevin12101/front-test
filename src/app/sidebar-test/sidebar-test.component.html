@@ -1,0 +1,55 @@
+<mat-sidenav-container class="sidenav-container">
+
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <div class="align-items-center">
+      <img style="width: 190px;" src="../../assets/logo.png" />
+    </div>
+    <mat-toolbar class="text-white">Menu</mat-toolbar>
+    <mat-nav-list>
+      <a class="text-white" *ngFor="let menuItem of menuItems" mat-list-item
+        href="{{menuItem.path}}">{{menuItem.title}}</a>
+        <cdk-accordion class="example-accordion">
+          <cdk-accordion-item
+            *ngFor="let menuItem of menuItems; let index = index;"
+            #accordionItem="cdkAccordionItem"
+            class="example-accordion-item"
+            role="button"
+            tabindex="0"
+            [attr.id]="'accordion-header-' + 3"
+            [attr.aria-expanded]="accordionItem.expanded"
+            [attr.aria-controls]="'accordion-body-' + 3">
+            <div *ngIf="index == 2" class="example-accordion-item-header" (click)="accordionItem.toggle()">
+              {{ menuItem.title }}
+              <span class="example-accordion-item-description">
+                Click to {{ accordionItem.expanded ? 'close' : 'open' }}
+              </span>
+            </div>
+            <div
+              class="example-accordion-item-body"
+              role="region"
+              [style.display]="accordionItem.expanded ? '' : 'none'"
+              [attr.id]="'accordion-body-' + index"
+              [attr.aria-labelledby]="'accordion-header-' + index">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis
+              excepturi incidunt ipsum deleniti labore, tempore non nam doloribus blanditiis
+              veritatis illo autem iure aliquid ullam rem tenetur deserunt velit culpa?
+            </div>
+          </cdk-accordion-item>
+        </cdk-accordion>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar style="background-color: #3f458a; width:auto;">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <!-- <span>client</span> -->
+      <button (click)="(salir())" type="button" routerLinkActive="activate" class="btn ml-auto text-white"
+        style="background-color: #3f458a;" data-toggle="modal" data-target="#newIssue">
+        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>
