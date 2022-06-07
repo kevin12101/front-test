@@ -16,7 +16,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 //libs para consumir apis y caputar datos del formulario
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+//import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 //paginacion
@@ -50,7 +51,6 @@ import {CdkAccordionModule} from '@angular/cdk/accordion';
     HttpClientModule,
     NgxPaginationModule,
     NgbModule,
-    FontAwesomeModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
