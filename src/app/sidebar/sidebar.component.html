@@ -1,14 +1,13 @@
 <div class="sidebar-wrapper" style="overflow: hidden">
-    <div class="logo center-logo">
+    <div class="sidebar-brand d-flex justify-content-center pt-1">
         <a href="" class="simple-text" target="_blank">
-            <div class="center-logo">
-                <img src="../../assets/logo.png" />
-            </div>
+            <img src="../../assets/logo.png" width="170">   
+            
         </a>
     </div>
-    <ul class="nav responsive-nav" style="overflow: hidden">
-        <div class="d-flex flex-column w-100">
-            <li class="nav-item" routerLinkActive="active" *ngFor="let menuItem of menuItems">
+    <ul class="nav responsive-nav text-center" style="overflow: hidden">
+        <div class="d-flex flex-column w-100 align-middle">
+            <li class="nav-item " routerLinkActive="active" *ngFor="let menuItem of menuItems">
                 <a [routerLink]="[menuItem.path]" class="nav-link">
                     <!-- <i class="{{menuItem.icon}} icon-sidebar"></i> -->
                     <p class="text-center"> {{menuItem.title}}</p>

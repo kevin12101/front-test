@@ -5,9 +5,12 @@
     <div class="align-items-center">
       <img style="width: 190px;" src="../../assets/logo.png" />
     </div>
-    <mat-toolbar class="text-white">Menu</mat-toolbar>
+    <div>
+      <mat-toolbar class="text-white align-items-center">Menu</mat-toolbar>
+    </div>
+    
     <mat-nav-list>
-      <a class="text-white" *ngFor="let menuItem of menuItems" mat-list-item
+      <a class="text-white cambioColor example-accordion" *ngFor="let menuItem of menuItems" mat-list-item
         href="{{menuItem.path}}">{{menuItem.title}}</a>
         <cdk-accordion class="example-accordion">
           <cdk-accordion-item
@@ -19,28 +22,31 @@
             [attr.id]="'accordion-header-' + 3"
             [attr.aria-expanded]="accordionItem.expanded"
             [attr.aria-controls]="'accordion-body-' + 3">
-            <div *ngIf="index == 2" class="example-accordion-item-header" (click)="accordionItem.toggle()">
-              {{ menuItem.title }}
-              <span class="example-accordion-item-description">
+            <div *ngIf="index == 2" class="example-accordion-item" (click)="accordionItem.toggle()">
+              <!-- <button class="btn text-center text-white"> {{ menuItem.title }} </button> -->
+              <button class="btn text-center text-white cambioColor">{{ menuItem.title }}</button>
+              
+             <!--  <span class="example-accordion-item-description">
                 Click to {{ accordionItem.expanded ? 'close' : 'open' }}
-              </span>
+              </span> -->
             </div>
             <div
-              class="example-accordion-item-body"
+              class="example-accordion-item"
               role="region"
               [style.display]="accordionItem.expanded ? '' : 'none'"
               [attr.id]="'accordion-body-' + index"
               [attr.aria-labelledby]="'accordion-header-' + index">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis
-              excepturi incidunt ipsum deleniti labore, tempore non nam doloribus blanditiis
-              veritatis illo autem iure aliquid ullam rem tenetur deserunt velit culpa?
+              Por fecha de Creacion
+              
             </div>
           </cdk-accordion-item>
         </cdk-accordion>
+
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar style="background-color: #3f458a; width:auto;">
+      
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>

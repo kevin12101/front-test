@@ -90,7 +90,7 @@ export class TicketsComponent implements OnInit {
 
   borrarNota(indice: number){
     this.getnotas.removeAt(indice);
-    
+    this.bandera = false;
   }
 
   cerrarmodal(){
