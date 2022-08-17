@@ -1,16 +1,16 @@
 .sidenav-container {
   height: 70%;
   width: auto;
-  background:  #3f458a;
+  background:  rgb(44, 243, 243);
 }
 
 .sidenav {
   width: 200px;
-  background:  #3f458a;
+  background: rgb(44, 243, 243);
 }
 
 .sidenav .mat-toolbar {
-  background:  #3f458a;
+  background:  rgb(44, 243, 243);
 
 }
 

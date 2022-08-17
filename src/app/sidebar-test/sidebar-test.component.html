@@ -46,15 +46,15 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar style="background-color: #3f458a; width:auto;">
+    <mat-toolbar style="background-color: rgb(44, 243, 243); width:auto;">
       
       <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <!-- <span>client</span> -->
-      <button (click)="(salir())" type="button" routerLinkActive="activate" class="btn ml-auto text-white"
-        style="background-color: #3f458a;" data-toggle="modal" data-target="#newIssue">
+      <button (click)="(salir())" type="button" routerLinkActive="activate" class="btn ml-auto text-black"
+        style="background-color: white;" data-toggle="modal" data-target="#newIssue">
         <i class="fas fa-sign-out-alt"></i> Cerrar Sesión</button>
     </mat-toolbar>
     <!-- Add Content Here -->

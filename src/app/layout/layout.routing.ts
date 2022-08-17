@@ -5,6 +5,7 @@ import { RegisterComponent } from '../register/register.component';
 import { TicketsComponent } from '../tickets/tickets.component';
 import { TicketComponent } from '../ticket/ticket.component';
 import { HeaderComponent } from '../header/header.component';
+import { ReportviewComponent } from '../reportview/reportview.component';
 
 
 export const LayoutRoutes: Routes = [
@@ -34,11 +35,17 @@ export const LayoutRoutes: Routes = [
         canActivate:[AuthGuard]
     },
     {
+        path: 'reports',
+        component: ReportviewComponent,
+        canActivate:[AuthGuard]
+    },
+    {
         path: '**',
         redirectTo: 'tickets',
         pathMatch: 'full',
         canActivate:[AuthGuard]
     },
+    
       
     
 ];

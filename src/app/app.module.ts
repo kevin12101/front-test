@@ -34,6 +34,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import {CdkAccordionModule} from '@angular/cdk/accordion';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +42,7 @@ import {CdkAccordionModule} from '@angular/cdk/accordion';
     LayoutComponent,
     HeaderComponent,
     SidebarTestComponent,
+    
     
     
   ],

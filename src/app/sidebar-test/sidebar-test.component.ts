@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class SidebarTestComponent {
   menuItems: any[] | undefined = [{path: "/tickets", title: "Inicio"}, {path: "/newTicket", title: "Nuevo Ticket"} ,
-  {path: "/", title: "Generar Reportes"}];
+  {path: "/reports", title: "Generar Reportes"}];
   expandedIndex = 0;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)

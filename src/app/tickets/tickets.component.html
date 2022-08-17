@@ -4,42 +4,35 @@
 <div class="card">
 
 	
-	<div class="container-fluid mt-5">
-		<div class="row">
-			<div class="col-2">
-				<form class="form-inline">
-					<input class="form-control " name="filter" type="search" [(ngModel)]="filter" placeholder="Buscar..." >
-					<i class="fas fa-search" ></i>
-					
-					<!-- <button style="background-color: #3f458a;" class="btn text-white btn" type="button">Buscar</button> -->
-				</form>
-			  
-			</div>
+	
 
-			
-
-			<div class="col-5">
-				<form class="form-innline">
-
-					<label class="form-label ml-4" for="">Filtrar por Estados del caso</label>
-				<select (change)="getinfo(filtro.estado_caso)" [(ngModel)]="filtro.estado_caso" class="form-select" aria-label="Default select example">
-					<option value ="Solucionado">Solucionado</option>
-					  <option value="Pendiente">Pendiente</option>
-				</select>
-				<span class="input-group-text border-0" id="search-addon" (click)="getinfo(undefined)">
-					<i class="fa fa-window-close"></i>
-				</span>
-
-
-				</form>
-				
-				
-			  
-			</div>
+	<div class="btn-toolbar mt-3 mb-3" role="toolbar" aria-label="Toolbar with button groups">
+		<div class="btn-group me-2" role="group" aria-label="First group">
+			<form class="form-inline">
+				<input class="form-control " name="filter" type="search" [(ngModel)]="filter" placeholder="Buscar..." >
+				<i class="fas fa-search ml-2" ></i>
+			</form>
 		</div>
-			
+		<div class="input-group">
+			<label class="form-label ml-4 mr-4" for="">Filtrar por Estados del caso</label>
+			<select (change)="getinfo(filtro.estado_caso)" [(ngModel)]="filtro.estado_caso" class="form-select" aria-label="Default select example">
+				<option value ="Solucionado">Solucionado</option>
+				<option value="Pendiente">Pendiente</option>
+				
+			</select>
+			<span class="input-group-text border-0" id="search-addon" (click)="getinfo(undefined)">
+				<i class="fa fa-window-close"></i>
+			</span>
+		  
+		</div>
+	  </div>
+
+	
 		
-	</div>
+		
+		
+	  
+	
 	
 
 	<div *ngIf="cliente ==1" class="card-header text-center ">
@@ -76,10 +69,10 @@
 						<!-- <td>{{ data.status == 1 ? 'en revision':data.solution_date | date:"short"}}</td> -->
 						<td class = "text-justify col-1">{{data.description}}</td>
 						<td style= "text-align: center;">{{data.solution_date | date:"dd/MM/yy hh:mm:a" }}</td>
-						<td style="text-align: center;"><button (click)="open(data.id, content)" type="button"  class="btn text-white" style="background-color: #3f458a">Ver info</button></td>
+						<td style="text-align: center;"><button (click)="open(data.id, content)" type="button"  class="btn text-black" style="background-color: rgb(44, 243, 243)">Ver info</button></td>
 						<td *ngIf="cliente == 1" class = "text-justify col-1">{{data.comentario_dev}}</td>
 						<!-- <td [routerLink]="['/ticket', data.id]" style="text-align: center;"><button type="button"  class="btn text-white" style="background-color: #3f458a">Editar</button></td> -->
-						<td (click)="(updatestate(data.id, solution))" style="text-align: center;"  *ngIf="idrol == 2"><button type="button"  class="btn text-white" style="background-color: #3f458a">Solucionado</button></td>
+						<td (click)="(updatestate(data.id, solution))" style="text-align: center;"  *ngIf="idrol == 2"><button type="button"  class="btn text-black" style="background-color: rgb(44, 243, 243)" >Solucionado</button></td>
 						
 					</tr>
 					
