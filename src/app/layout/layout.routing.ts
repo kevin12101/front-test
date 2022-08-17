@@ -38,7 +38,7 @@ export const LayoutRoutes: Routes = [
         redirectTo: 'tickets',
         pathMatch: 'full',
         canActivate:[AuthGuard]
-      },
+    },
       
     
 ];

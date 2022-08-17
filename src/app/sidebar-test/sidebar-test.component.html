@@ -5,12 +5,13 @@
     <div class="align-items-center">
       <img style="width: 190px;" src="../../assets/logo.png" />
     </div>
-    <div>
-      <mat-toolbar class="text-white align-items-center">Menu</mat-toolbar>
+
+    <div class="container">
+      <mat-toolbar class="justify-content-center text-white">Menu</mat-toolbar>
     </div>
     
-    <mat-nav-list>
-      <a class="text-white cambioColor example-accordion" *ngFor="let menuItem of menuItems" mat-list-item
+    <mat-nav-list class="align-items-center">
+      <a class="justify-content-center text-white cambioColor example-accordion" *ngFor="let menuItem of menuItems" mat-list-item
         href="{{menuItem.path}}">{{menuItem.title}}</a>
         <cdk-accordion class="example-accordion">
           <cdk-accordion-item
@@ -22,15 +23,15 @@
             [attr.id]="'accordion-header-' + 3"
             [attr.aria-expanded]="accordionItem.expanded"
             [attr.aria-controls]="'accordion-body-' + 3">
-            <div *ngIf="index == 2" class="example-accordion-item" (click)="accordionItem.toggle()">
+            <!-- <div *ngIf="index == 2" class="example-accordion-item" (click)="accordionItem.toggle()"> -->
               <!-- <button class="btn text-center text-white"> {{ menuItem.title }} </button> -->
-              <button class="btn text-center text-white cambioColor">{{ menuItem.title }}</button>
+              <!-- <button class="btn text-center text-white cambioColor">{{ menuItem.title }}</button> -->
               
              <!--  <span class="example-accordion-item-description">
                 Click to {{ accordionItem.expanded ? 'close' : 'open' }}
               </span> -->
-            </div>
-            <div
+           <!--  </div> -->
+            <!-- <div
               class="example-accordion-item"
               role="region"
               [style.display]="accordionItem.expanded ? '' : 'none'"
@@ -38,7 +39,7 @@
               [attr.aria-labelledby]="'accordion-header-' + index">
               Por fecha de Creacion
               
-            </div>
+            </div> -->
           </cdk-accordion-item>
         </cdk-accordion>
 

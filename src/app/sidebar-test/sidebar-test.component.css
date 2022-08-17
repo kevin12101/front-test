@@ -11,7 +11,7 @@
 
 .sidenav .mat-toolbar {
   background:  #3f458a;
-  text-align: center;
+
 }
 
 .mat-toolbar.mat-primary {
@@ -51,7 +51,7 @@
   text-align: center;
 }
 
-.cambioColor:hover {color:white !important;
- 
+.cambioColor:hover {
+  color:white !important;
 }
 

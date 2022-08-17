@@ -40,7 +40,7 @@ export class ApiService {
     return this.http
       .post<any>(`${environment.API}${path}`, data)
       .pipe(map((data) => data));
-    }
+  }
 
  
 }

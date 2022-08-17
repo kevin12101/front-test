@@ -250,7 +250,7 @@ export class NewTicketComponent implements OnInit {
       const body = new FormData();
       this.archivos.forEach((archivo: any) => {
       body.append( "file",archivo)
-      console.log("id insertado ",this.insertid);
+      //console.log("id insertado ",this.insertid);
       });
       body.append( "insertid", String(this.insertid))
       

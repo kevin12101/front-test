@@ -22,7 +22,8 @@ import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
 //paginacion
 import {NgxPaginationModule} from 'ngx-pagination';
-import { SidebarComponent } from './sidebar/sidebar.component';
+
+//componentes
 import { LayoutComponent } from './layout/layout.component';
 import { SidebarTestComponent } from './sidebar-test/sidebar-test.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -38,7 +39,6 @@ import {CdkAccordionModule} from '@angular/cdk/accordion';
     AppComponent,
     LoginComponent,
     LayoutComponent,
-    SidebarComponent,
     HeaderComponent,
     SidebarTestComponent,
     

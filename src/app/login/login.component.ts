@@ -56,9 +56,9 @@ export class LoginComponent implements OnInit {
   
   }
 
-  /* registro(){
+  registro(){
     this.router.navigate(['/register']);
-  } */
+  }
 
   loginUser(){
     if (!this.validateUser()) {

@@ -93,8 +93,8 @@ export class AuthenticateService {
           (data) => {
             if (data.status) {
               this.auth = true;
-              localStorage.setItem('token', JSON.stringify(data.data[1]));
-              this.currentLoginSubject.next(data);
+              //localStorage.setItem('token', JSON.stringify(data.data[1]));
+              //this.currentLoginSubject.next(data);
             }
             return data;
           },
